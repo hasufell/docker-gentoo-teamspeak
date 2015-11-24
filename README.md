@@ -22,7 +22,7 @@ A full command could look like this:
 ```sh
 docker run -ti -d \
 	--name=teamspeak3 \
-	-p 9987:9987 \
+	-p 9987:9987/udp \
 	-p 30033:30033 \
 	-p 10011:10011 \
 	-e dbsqlpath=/opt/teamspeak3-server/sql/ \
