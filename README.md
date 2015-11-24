@@ -15,6 +15,10 @@ if you want to set `logpath="/path/to/logs"` you just pass
 If you don't like the `-e`-foo you can mount in a configuration file
 and tell teamspeak to use it via `-e inifile=/path/to/config/server.conf`.
 
+Data files will usually be created at `/var/lib/teamspeak3-server/`, unless
+you overwrite all those locations. So it might make sense to use a data volume
+for that location or mount in a host folder.
+
 ## Running
 
 A full command could look like this:
