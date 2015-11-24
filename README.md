@@ -30,5 +30,5 @@ docker run -ti -d \
 	hasufell/gentoo-teamspeak
 ```
 
-Then examine the logs in your logpath (default `/srv/teamspeak/logs` on the host)
-and use the provided admin account information to get into your server.
+Then examine the logs via `docker logs teamspeak3` to get your admin account
+information.
