@@ -1,7 +1,7 @@
 ## Installation
 
 ```sh
-docker build -t hasufell/gentoo-teamspeak .
+docker build -t mosaiksoftware/gentoo-teamspeak .
 ```
 
 ## Configuration
@@ -31,7 +31,7 @@ docker run -ti -d \
 	-p 10011:10011 \
 	-e dbsqlpath=/opt/teamspeak3-server/sql/ \
 	-v /srv/teamspeak:/var/lib/teamspeak3-server/ \
-	hasufell/gentoo-teamspeak
+	mosaiksoftware/gentoo-teamspeak
 ```
 
 Then examine the logs via `docker logs teamspeak3` to get your admin account

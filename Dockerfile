@@ -1,8 +1,10 @@
-FROM        hasufell/gentoo-amd64-paludis:latest
+FROM        mosaiksoftware/gentoo-amd64-paludis:latest
 MAINTAINER  Julian Ospald <hasufell@gentoo.org>
 
 
 ##### PACKAGE INSTALLATION #####
+
+RUN rm /etc/paludis/package_mask.conf.d/binhost.conf
 
 # copy paludis config
 COPY ./config/paludis /etc/paludis
