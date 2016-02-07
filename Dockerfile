@@ -4,8 +4,6 @@ MAINTAINER  Julian Ospald <hasufell@gentoo.org>
 
 ##### PACKAGE INSTALLATION #####
 
-RUN rm /etc/paludis/package_mask.conf.d/binhost.conf
-
 # copy paludis config
 COPY ./config/paludis /etc/paludis
 
