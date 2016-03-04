@@ -7,14 +7,18 @@ MAINTAINER  Julian Ospald <hasufell@gentoo.org>
 # copy paludis config
 COPY ./config/paludis /etc/paludis
 
-# update world with our USE flags
-RUN chgrp paludisbuild /dev/tty && cave resolve -c world -x
-
-# install umurmurset set
-RUN chgrp paludisbuild /dev/tty && cave resolve -c teamspeakset -x
-
-# install tools set
-RUN chgrp paludisbuild /dev/tty && cave resolve -c tools -x
+RUN chgrp paludisbuild /dev/tty && \
+	git -C /usr/portage checkout -- . && \
+	env-update && \
+	source /etc/profile && \
+	cave sync gentoo && \
+	mkdir -p /usr/portage/distfiles && \
+	cave resolve -c world -x && \
+	cave resolve -c teamspeakset -x && \
+	cave resolve -c tools -x && \
+	cave fix-linkage -x && \
+	rm -rf /var/cache/paludis/names/* /var/cache/paludis/metadata/* \
+		/var/tmp/paludis/* /usr/portage/* /srv/binhost/*
 
 # update etc files... hope this doesn't screw up
 RUN etc-update --automode -5
