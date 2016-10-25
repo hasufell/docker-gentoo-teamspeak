@@ -9,7 +9,6 @@ COPY ./config/paludis /etc/paludis
 
 # update world with our USE flags
 RUN chgrp paludisbuild /dev/tty && \
-	cave resolve -c world -x && \
 	cave resolve -c teamspeakset -x && \
 	rm -rf /usr/portage/distfiles/* /var/tmp/paludis/* \
 		/var/tmp/portage/*
