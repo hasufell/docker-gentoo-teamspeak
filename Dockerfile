@@ -1,5 +1,5 @@
 FROM        hasufell/gentoo-amd64-paludis:latest
-MAINTAINER  Julian Ospald <hasufell@gentoo.org>
+MAINTAINER  Julian Ospald <hasufell@posteo.de>
 
 
 ##### PACKAGE INSTALLATION #####
@@ -8,13 +8,11 @@ MAINTAINER  Julian Ospald <hasufell@gentoo.org>
 COPY ./config/paludis /etc/paludis
 
 # update world with our USE flags
-RUN chgrp paludisbuild /dev/tty && cave resolve -c world -x
-
-# install umurmurset set
-RUN chgrp paludisbuild /dev/tty && cave resolve -c teamspeakset -x
-
-# install tools set
-RUN chgrp paludisbuild /dev/tty && cave resolve -c tools -x
+RUN chgrp paludisbuild /dev/tty && \
+	cave resolve -c world -x && \
+	cave resolve -c teamspeakset -x && \
+	rm -rf /usr/portage/distfiles/* /var/tmp/paludis/* \
+		/var/tmp/portage/*
 
 # update etc files... hope this doesn't screw up
 RUN etc-update --automode -5
