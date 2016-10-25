@@ -9,7 +9,8 @@ COPY ./config/paludis /etc/paludis
 
 # update world with our USE flags
 RUN chgrp paludisbuild /dev/tty && \
-	cave resolve -c teamspeakset -x && \
+	cave resolve -c world -x --without sys-devel/gcc && \
+	cave resolve -c teamspeakset -x --without sys-devel/gcc && \
 	rm -rf /usr/portage/distfiles/* /var/tmp/paludis/* \
 		/var/tmp/portage/*
 
